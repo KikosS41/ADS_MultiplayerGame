@@ -4,14 +4,180 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="" />
+    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="Init">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/ConnectedPlayer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/Entity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/KeyHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/MapParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/UtilityTool.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/player/boy_down_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/decor_0.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/decor_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/decor_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/decor_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/decor_4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/decor_5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/decor_6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/decor_7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/fence_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/sprite_44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_00.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_01.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_02.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_03.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_04.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_05.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_06.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_07.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_08.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_09.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/zsprite_34.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN"
+  }
+}]]></component>
+  <component name="GitToolBoxStore">
+    <option name="recentBranches">
+      <RecentBranches>
+        <option name="branchesForRepo">
+          <list>
+            <RecentBranchesForRepo>
+              <option name="branches">
+                <list>
+                  <RecentBranch>
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1681748556" />
+                  </RecentBranch>
+                  <RecentBranch>
+                    <option name="branchName" value="master" />
+                    <option name="lastUsedInstant" value="1681748555" />
+                  </RecentBranch>
+                </list>
+              </option>
+              <option name="repositoryRootUrl" value="file://$PROJECT_DIR$" />
+            </RecentBranchesForRepo>
+          </list>
+        </option>
+      </RecentBranches>
+    </option>
+  </component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="d7af77af-f1a1-4a79-b050-16f71b853635" />
+        <option name="url" value="https://github.com/KikosS41/ADS_MultiplayerGame.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -30,12 +196,26 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
+    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/src/main/resources",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "preferences.editor",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\player" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -44,8 +224,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1681748435527</updated>
+      <workItem from="1681748436759" duration="20735000" />
     </task>
+    <task id="LOCAL-00001" summary="Init">
+      <created>1681748472545</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681748472545</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init" />
+    <option name="LAST_COMMIT_MESSAGE" value="Init" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
