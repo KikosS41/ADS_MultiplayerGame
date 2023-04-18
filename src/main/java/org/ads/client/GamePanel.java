@@ -1,5 +1,9 @@
 package org.ads.client;
 
+import org.ads.client.map_parser.MapParser;
+import org.ads.client.entities.ConnectedPlayer;
+import org.ads.client.entities.Player;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
@@ -11,18 +15,27 @@ import java.util.ArrayList;
 
 public class GamePanel extends JPanel implements Runnable {
     // Screen Settings
-    int originalTileSize = 16;
+    int originalTileSize;
     int scale = 3;
-    int tileSize = originalTileSize * scale;
-    int maxScreenCol = 16;
-    int maxScreenRow = 12;
-    int screenWidth = tileSize * maxScreenCol;
-    int screenHeight = tileSize * maxScreenRow;
+    public int tileSize;
+    int maxScreenCol;
+    int maxScreenRow;
+    public int screenWidth;
+    public int screenHeight;
     KeyHandler keyHandler = new KeyHandler();
 
+    // Map parser
+    MapParser currentMap = new MapParser("src/main/resources/maps/map.json", this); // /maps/map.json
+
+    // World settings (initialised at current.getMapInfo(this) in constructor)
+    public int maxWorldCol;
+    public int maxWorldRow;
+    public int worldWidth;
+    public int worldHeight;
+
     // Entities
-    Player player;
-    ArrayList<ConnectedPlayer> connectedPlayers;
+    public Player player; // Initialised in constructor
+    ArrayList<ConnectedPlayer> connectedPlayers = new ArrayList<>();
 
     // Thread for game loop
     Thread gameThread;
@@ -35,7 +48,19 @@ public class GamePanel extends JPanel implements Runnable {
     BufferedReader input;
     public PrintWriter output;
     MessageParser messageParser = new MessageParser();
-    public GamePanel(String name){
+    public GamePanel(String name, int maxScreenCol, int maxScreenRow) throws IOException {
+        this.maxScreenCol = maxScreenCol;
+        this.maxScreenRow = maxScreenRow;
+        ArrayList<Integer> parameters = currentMap.getMapInfo();
+
+        maxWorldCol = parameters.get(0);
+        maxWorldRow = parameters.get(1);
+        originalTileSize = parameters.get(2);
+        tileSize = originalTileSize * scale;
+        worldWidth = tileSize * maxWorldCol;
+        worldHeight = tileSize * maxWorldRow;
+        screenWidth = tileSize * this.maxScreenCol;
+        screenHeight = tileSize * this.maxScreenRow;
 
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.black);
@@ -43,15 +68,21 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
 
+        player = new Player(this, keyHandler, name);
+
         try {
             Socket socket = new Socket(HOST, PORT);
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             output = new PrintWriter(socket.getOutputStream(), true);
             output.println("JOIN " + player.name + " " + player.worldX + " " + player.worldY + " " +player.speed);
+            InputThread inputThread = new InputThread(input, this);
+            Thread inputThreadThread = new Thread(inputThread);
+            inputThreadThread.start();
         } catch (IOException e) {
             System.err.println("Erreur lors de la connexion au serveur.");
             System.exit(1);
         }
+        currentMap.loadMap();
     }
 
     public void setupGame(){
@@ -65,29 +96,26 @@ public class GamePanel extends JPanel implements Runnable {
 
     @Override
     public void run() {
-        double drawInterval = 1000000000/FPS;
+        double drawInterval = 1000000000 /FPS;
         double delta = 0;
         long lastTime = System.nanoTime();
         long currentTime;
 
         String message;
-        try {
-            while (gameThread != null && (message = input.readLine()) != null) {
-                currentTime = System.nanoTime();
-                delta += (currentTime - lastTime) / drawInterval;
-                lastTime = currentTime;
-                    connectedPlayers = messageParser.parseMessage(message, this);
-                if (delta >= 1) {
-                    update();
-                    output.println("UPDATE " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed);
-                    repaint();
-                    delta--;
-                }
+
+        while (gameThread != null) {
+            currentTime = System.nanoTime();
+            delta += (currentTime - lastTime) / drawInterval;
+            lastTime = currentTime;
+
+            if (delta >= 1) {
+                update();
+                output.println("UPDATE " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed);
+                repaint();
+                delta--;
             }
-        } catch (IOException e) {
-            System.err.println("Erreur lors de la connexion au serveur.");
-            System.exit(1);
         }
+
     }
 
     private void update() {
@@ -103,9 +131,19 @@ public class GamePanel extends JPanel implements Runnable {
         // Draw player
         player.draw(graphics2D);
 
-        for (ConnectedPlayer connectedPlayer: connectedPlayers) {
-            connectedPlayer.draw(graphics2D);
+        if (connectedPlayers != null){
+            for (ConnectedPlayer connectedPlayer: connectedPlayers) {
+                connectedPlayer.draw(graphics2D);
+            }
         }
         graphics2D.dispose();
+    }
+    public void close(){
+        output.println("QUIT");
+        output.close();
+    }
+
+    public void setConnectedPlayers(ArrayList<ConnectedPlayer> connectedPlayers) {
+        this.connectedPlayers = connectedPlayers;
     }
 }

@@ -1,5 +1,7 @@
 package org.ads.client;
 
+import org.ads.client.entities.ConnectedPlayer;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -10,7 +12,7 @@ public class MessageParser {
 
         switch (parts[0]) {
             case "JOIN" -> {
-                ConnectedPlayer playerToAdd = new ConnectedPlayer(gamePanel, parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]));
+                ConnectedPlayer playerToAdd = new ConnectedPlayer(gamePanel, parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
                 for (ConnectedPlayer connectedPlayer : gamePanel.connectedPlayers) {
                     if (Objects.equals(connectedPlayer.name, playerToAdd.name)) {
                         return gamePanel.connectedPlayers;
@@ -24,7 +26,6 @@ public class MessageParser {
                 for (ConnectedPlayer connectedPlayer : gamePanel.connectedPlayers) {
                     if (connectedPlayer.name.equals(parts[1])) {
                         connectedPlayer.update(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
-                        System.out.println(connectedPlayer.name + "est désormais en [" + connectedPlayer.worldX + ":" + connectedPlayer.worldY + "].");
                         break;
                     }
                 }

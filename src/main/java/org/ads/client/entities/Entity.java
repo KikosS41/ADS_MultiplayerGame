@@ -1,4 +1,7 @@
-package org.ads.client;
+package org.ads.client.entities;
+
+import org.ads.client.GamePanel;
+import org.ads.client.UtilityTool;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -9,10 +12,10 @@ public abstract class Entity {
 
 
     GamePanel gamePanel;
-    String name;
-    int worldX;
-    int worldY;
-    int speed;
+    public String name;
+    public int worldX;
+    public int worldY;
+    public int speed;
 
     public Entity(GamePanel gamePanel){
         this.gamePanel = gamePanel;
@@ -22,7 +25,7 @@ public abstract class Entity {
     }
 
     public void draw(Graphics2D graphics2D){
-        BufferedImage image = setup("boy_down_1");
+        BufferedImage image = setup("/player/boy_down_1.png");
         int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX;
         int screenY = worldY - gamePanel.player.worldY + gamePanel.player.screenY;
         if (worldX + gamePanel.tileSize> gamePanel.player.worldX - gamePanel.player.screenX &&
@@ -35,11 +38,11 @@ public abstract class Entity {
         }
     }
 
-    public BufferedImage setup(String imageName) {
+    public BufferedImage setup(String imagePath) {
         UtilityTool uTool = new UtilityTool();
         BufferedImage image = null;
         try {
-            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(imageName + ".png")));
+            image = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream(imagePath)));
             image =  uTool.scaleImage(image, gamePanel.tileSize, gamePanel.tileSize);
         } catch (Exception e) {
             e.printStackTrace();
