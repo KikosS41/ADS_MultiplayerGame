@@ -12,20 +12,20 @@ public class MessageParser {
 
         switch (parts[0]) {
             case "JOIN" -> {
-                ConnectedPlayer playerToAdd = new ConnectedPlayer(gamePanel, parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+                ConnectedPlayer playerToAdd = new ConnectedPlayer(gamePanel, parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), parts[5], parts[6]);
                 for (ConnectedPlayer connectedPlayer : gamePanel.connectedPlayers) {
                     if (Objects.equals(connectedPlayer.name, playerToAdd.name)) {
                         return gamePanel.connectedPlayers;
                     }
                 }
                 gamePanel.connectedPlayers.add(playerToAdd);
-                gamePanel.output.println("JOIN " + gamePanel.player.name + " " + gamePanel.player.worldX + " " + gamePanel.player.worldY + " " + gamePanel.player.speed);
+                gamePanel.output.println("JOIN " + gamePanel.player.name + " " + gamePanel.player.worldX + " " + gamePanel.player.worldY + " " + gamePanel.player.speed + " " + gamePanel.player.direction + " " + gamePanel.player.skin);
                 System.out.println(playerToAdd.name + " a rejoint la partie.");
             }
             case "UPDATE" -> {
                 for (ConnectedPlayer connectedPlayer : gamePanel.connectedPlayers) {
                     if (connectedPlayer.name.equals(parts[1])) {
-                        connectedPlayer.update(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+                        connectedPlayer.update(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), parts[5], parts[6]);
                         break;
                     }
                 }

@@ -23,15 +23,17 @@ public class PlayerHandler extends Thread {
                 String[] parts = message.split(" ");
                 switch (parts[0]) {
                     case "JOIN" -> {
-                        player = new Player(parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
-                        System.out.println(player.name + " connected.");
-                        Main.broadcast("JOIN " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed, this);
+                        if(player == null){
+                            player = new Player(parts[1], Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), parts[5], parts[6]);
+                            System.out.println(player.name + " connected.");
+                        }
+                        Main.broadcast("JOIN " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed + " " + player.direction + " " + player.skin, this);
                     }
                     case "UPDATE" -> {
-                        player.update(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]));
+                        player.update(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), parts[5], parts[6]);
                         for (PlayerHandler connectedPlayer : Main.getPlayers()) {
                             if (connectedPlayer != this) {
-                                Main.broadcast("UPDATE " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed, this);
+                                Main.broadcast("UPDATE " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed + " " + player.direction + " " + player.isMoving, this);
                             }
                         }
                     }

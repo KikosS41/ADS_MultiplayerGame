@@ -14,6 +14,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class GamePanel extends JPanel implements Runnable {
+    public CollisionHandler collisionHandler ;
     // Screen Settings
     int originalTileSize;
     int scale = 3;
@@ -48,7 +49,7 @@ public class GamePanel extends JPanel implements Runnable {
     BufferedReader input;
     public PrintWriter output;
     MessageParser messageParser = new MessageParser();
-    public GamePanel(String name, int maxScreenCol, int maxScreenRow) throws IOException {
+    public GamePanel(String name, String skin, int maxScreenCol, int maxScreenRow) throws IOException {
         this.maxScreenCol = maxScreenCol;
         this.maxScreenRow = maxScreenRow;
         ArrayList<Integer> parameters = currentMap.getMapInfo();
@@ -68,13 +69,13 @@ public class GamePanel extends JPanel implements Runnable {
         this.addKeyListener(keyHandler);
         this.setFocusable(true);
 
-        player = new Player(this, keyHandler, name);
+        player = new Player(this, keyHandler, name, skin);
 
         try {
             Socket socket = new Socket(HOST, PORT);
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             output = new PrintWriter(socket.getOutputStream(), true);
-            output.println("JOIN " + player.name + " " + player.worldX + " " + player.worldY + " " +player.speed);
+            output.println("JOIN " + player.name + " " + player.worldX + " " + player.worldY + " " +player.speed + " " + player.direction + " " +player.skin);
             InputThread inputThread = new InputThread(input, this);
             Thread inputThreadThread = new Thread(inputThread);
             inputThreadThread.start();
@@ -82,11 +83,13 @@ public class GamePanel extends JPanel implements Runnable {
             System.err.println("Erreur lors de la connexion au serveur.");
             System.exit(1);
         }
+
         currentMap.loadMap();
+        collisionHandler = new CollisionHandler(this);
+
     }
 
-    public void setupGame(){
-
+    public void setupGame() throws IOException {
     }
 
     public void startGame(){
@@ -101,8 +104,6 @@ public class GamePanel extends JPanel implements Runnable {
         long lastTime = System.nanoTime();
         long currentTime;
 
-        String message;
-
         while (gameThread != null) {
             currentTime = System.nanoTime();
             delta += (currentTime - lastTime) / drawInterval;
@@ -110,7 +111,7 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (delta >= 1) {
                 update();
-                output.println("UPDATE " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed);
+                output.println("UPDATE " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed + " " + player.direction + " " + player.isMoving);
                 repaint();
                 delta--;
             }
@@ -128,7 +129,7 @@ public class GamePanel extends JPanel implements Runnable {
 
         // Draw map
         currentMap.draw(graphics2D);
-        // Draw player
+        // Draw boy
         player.draw(graphics2D);
 
         if (connectedPlayers != null){
@@ -145,5 +146,9 @@ public class GamePanel extends JPanel implements Runnable {
 
     public void setConnectedPlayers(ArrayList<ConnectedPlayer> connectedPlayers) {
         this.connectedPlayers = connectedPlayers;
+    }
+
+    public ArrayList<ConnectedPlayer> getConnectedPlayers(){
+        return connectedPlayers;
     }
 }

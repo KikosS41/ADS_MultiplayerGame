@@ -23,20 +23,14 @@ public class Main {
     }
 
     public static void broadcast(String message, PlayerHandler excludePlayer) {
-        for (PlayerHandler player : players) {
+        List<PlayerHandler> playersCopy = new ArrayList<>(players);
+        for (PlayerHandler player : playersCopy) {
             if (player != excludePlayer) {
-                // Send positions of all connected clients
-                for (PlayerHandler otherPlayer : players) {
-                    if (otherPlayer != player) {
-                        player.sendMessage(message);
-                    }
-                }
+                player.sendMessage(message);
             }
         }
     }
-
     public static List<PlayerHandler> getPlayers() {
         return players;
     }
-
 }

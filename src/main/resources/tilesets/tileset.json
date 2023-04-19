@@ -8,7 +8,7 @@
  "margin":0,
  "name":"tileset",
  "spacing":0,
- "tilecount":104,
+ "tilecount":109,
  "tiledversion":"1.8.5",
  "tileheight":16,
  "tiles":[
@@ -1251,6 +1251,54 @@
         {
          "id":103,
          "image":"..\/tiles\/fence_15.png",
+         "imageheight":16,
+         "imagewidth":16,
+         "properties":[
+                {
+                 "name":"HasCollision",
+                 "type":"bool",
+                 "value":true
+                }]
+        }, 
+        {
+         "id":104,
+         "image":"..\/tiles\/water_1.png",
+         "imageheight":16,
+         "imagewidth":16,
+         "properties":[
+                {
+                 "name":"HasCollision",
+                 "type":"bool",
+                 "value":true
+                }]
+        }, 
+        {
+         "id":105,
+         "image":"..\/tiles\/water_2.png",
+         "imageheight":16,
+         "imagewidth":16,
+         "properties":[
+                {
+                 "name":"HasCollision",
+                 "type":"bool",
+                 "value":true
+                }]
+        }, 
+        {
+         "id":106,
+         "image":"..\/tiles\/water_3.png",
+         "imageheight":16,
+         "imagewidth":16,
+         "properties":[
+                {
+                 "name":"HasCollision",
+                 "type":"bool",
+                 "value":true
+                }]
+        }, 
+        {
+         "id":107,
+         "image":"..\/tiles\/water_4.png",
          "imageheight":16,
          "imagewidth":16,
          "properties":[

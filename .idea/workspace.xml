@@ -4,25 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="fusionning an old project with a client server system">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/Tile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/maps/map.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tilesets/tileset.json" afterDir="false" />
+    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="communication between server and clients work ! no features in this version. need to had collision system and do a new map.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/CollisionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/water_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/water_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/water_3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/water_4.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/ConnectedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/MapParser.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/Player.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/maps/map.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maps/map.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/player/boy_down_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/tilesets/tileset.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tilesets/tileset.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +103,7 @@
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "WebServerToolWindowFactoryState": "false",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/src/main/resources/tilesets",
+    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/src/main/resources",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -114,17 +115,32 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\boy" />
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\tiles" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\tilesets" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\maps" />
-      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
-      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\player" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\girl" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main Client">
+  <component name="RunManager" selected="Application.Main Client (2)">
     <configuration name="Main Client (1)" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.ads.client.Main" />
+      <module name="ADS_MultiplayerGame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ads.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main Client (2)" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.ads.client.Main" />
       <module name="ADS_MultiplayerGame" />
       <extension name="coverage">
@@ -165,6 +181,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main Client (1)" />
+      <item itemvalue="Application.Main Client (2)" />
       <item itemvalue="Application.Main Server" />
       <item itemvalue="Application.Main Client" />
     </list>
@@ -184,7 +201,8 @@
       <option name="presentableId" value="Default" />
       <updated>1681748435527</updated>
       <workItem from="1681748436759" duration="21733000" />
-      <workItem from="1681805680832" duration="28480000" />
+      <workItem from="1681805680832" duration="29160000" />
+      <workItem from="1681897238350" duration="29891000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1681748472545</created>
@@ -200,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681770461713</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="communication between server and clients work ! no features in this version. need to had collision system and do a new map.">
+      <created>1681837321570</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681837321570</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +245,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init" />
     <MESSAGE value="fusionning an old project with a client server system" />
-    <option name="LAST_COMMIT_MESSAGE" value="fusionning an old project with a client server system" />
+    <MESSAGE value="communication between server and clients work ! no features in this version. need to had collision system and do a new map." />
+    <option name="LAST_COMMIT_MESSAGE" value="communication between server and clients work ! no features in this version. need to had collision system and do a new map." />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

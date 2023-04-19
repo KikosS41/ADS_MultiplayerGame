@@ -7,8 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class InputThread implements Runnable{
-    private BufferedReader input;
-    private GamePanel gamePanel;
+    private final BufferedReader input;
+    private final GamePanel gamePanel;
 
     public InputThread(BufferedReader input, GamePanel gamePanel) {
         this.input = input;
