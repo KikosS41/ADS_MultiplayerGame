@@ -8,10 +8,8 @@ import org.json.JSONObject;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -101,13 +99,13 @@ public class MapParser {
     }
 
     public void draw(Graphics2D graph2D) {
-        for (int i = 0; i < layers.size(); i++) {
+        for (int[][] layer : layers) {
             int worldCol = 0;
             int worldRow = 0;
 
-            while(worldCol < gamePanel.maxWorldCol && worldRow < gamePanel.maxWorldRow) {
+            while (worldCol < gamePanel.maxWorldCol && worldRow < gamePanel.maxWorldRow) {
 
-                int tileNumber = layers.get(i)[worldCol][worldRow];
+                int tileNumber = layer[worldCol][worldRow];
 
                 int worldX = worldCol * gamePanel.tileSize;
                 int worldY = worldRow * gamePanel.tileSize;
@@ -131,7 +129,7 @@ public class MapParser {
                 }
 
 
-                if ((worldX + gamePanel.tileSize> gamePanel.player.worldX - gamePanel.player.screenX &&
+                if ((worldX + gamePanel.tileSize > gamePanel.player.worldX - gamePanel.player.screenX &&
                         worldX - gamePanel.tileSize < gamePanel.player.worldX + gamePanel.player.screenX &&
                         worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.screenY &&
                         worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.screenY) ||
@@ -146,7 +144,7 @@ public class MapParser {
 
                 worldCol++;
 
-                if(worldCol == gamePanel.maxWorldCol) {
+                if (worldCol == gamePanel.maxWorldCol) {
                     worldCol = 0;
                     worldRow++;
                 }

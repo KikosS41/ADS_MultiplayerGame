@@ -23,6 +23,10 @@ public class MessageParser {
                 System.out.println(playerToAdd.name + " a rejoint la partie.");
             }
             case "UPDATE" -> {
+                if (parts[1].equals("OK")) {
+                    gamePanel.timestampReceived = System.currentTimeMillis();
+                    return gamePanel.connectedPlayers;
+                }
                 for (ConnectedPlayer connectedPlayer : gamePanel.connectedPlayers) {
                     if (connectedPlayer.name.equals(parts[1])) {
                         connectedPlayer.update(Integer.parseInt(parts[2]), Integer.parseInt(parts[3]), Integer.parseInt(parts[4]), parts[5], parts[6]);

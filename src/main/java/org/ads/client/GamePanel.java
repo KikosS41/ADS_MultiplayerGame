@@ -45,7 +45,11 @@ public class GamePanel extends JPanel implements Runnable {
     int FPS = 60;
     BufferedReader input;
     public PrintWriter output;
+
+    // Client-server part
     MessageParser messageParser = new MessageParser();
+    long timestampSent, timestampReceived;
+
     public GamePanel(String name, String skin, int maxScreenCol, int maxScreenRow) throws IOException {
         this.maxScreenCol = maxScreenCol;
         this.maxScreenRow = maxScreenRow;
@@ -95,6 +99,9 @@ public class GamePanel extends JPanel implements Runnable {
     public void startGame(){
         gameThread = new Thread(this);
         gameThread.start();
+
+        ServerUpdateThread serverUpdateThread = new ServerUpdateThread(this);
+        new Thread(serverUpdateThread).start();
     }
 
     @Override
@@ -111,7 +118,6 @@ public class GamePanel extends JPanel implements Runnable {
 
             if (delta >= 1) {
                 update();
-                output.println("UPDATE " + player.name + " " + player.worldX + " " + player.worldY + " " + player.speed + " " + player.direction + " " + player.isMoving);
                 repaint();
                 delta--;
             }

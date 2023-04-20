@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="ADS_MultiplayerGame:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="V1.O">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/statistics/ResourceMonitor.java" afterDir="false" />
+    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="[END] V1.0 with stats">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/ServerUpdateThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/CollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/CollisionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/statistics/ResourceMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/statistics/ResourceMonitor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,15 +98,16 @@
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.go.migrated.go.modules.settings": "true",
     "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/src/main/resources",
+    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/local_librairies/sigar-1.6.5.132-7.jar",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
@@ -113,6 +122,7 @@
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\maps" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\local_librairies" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\girl" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
     </key>
@@ -170,11 +180,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Server" type="JarApplication">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/ADS_MultiplayerGame_jar/ADS_MultiplayerGame.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Killian\git\ADS_MultiplayerGame" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="ADS_MultiplayerGame:jar" />
+        </option>
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.Main Client (1)" />
       <item itemvalue="Application.Main Client (2)" />
       <item itemvalue="Application.Main Server" />
       <item itemvalue="Application.Main Client" />
+      <item itemvalue="JAR Application.Server" />
     </list>
     <recent_temporary>
       <list>
@@ -193,7 +214,10 @@
       <updated>1681748435527</updated>
       <workItem from="1681748436759" duration="21733000" />
       <workItem from="1681805680832" duration="29160000" />
-      <workItem from="1681897238350" duration="40188000" />
+      <workItem from="1681897238350" duration="40282000" />
+      <workItem from="1681979491017" duration="5967000" />
+      <workItem from="1681988392402" duration="326000" />
+      <workItem from="1681988731652" duration="13363000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1681748472545</created>
@@ -223,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681939281323</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="correcting minor bug and started stats">
+      <created>1681949079161</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1681949079161</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -245,7 +276,9 @@
     <MESSAGE value="fusionning an old project with a client server system" />
     <MESSAGE value="communication between server and clients work ! no features in this version. need to had collision system and do a new map." />
     <MESSAGE value="V1.O" />
-    <option name="LAST_COMMIT_MESSAGE" value="V1.O" />
+    <MESSAGE value="correcting minor bug and started stats" />
+    <MESSAGE value="[END] V1.0 with stats" />
+    <option name="LAST_COMMIT_MESSAGE" value="[END] V1.0 with stats" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
