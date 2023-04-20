@@ -72,30 +72,30 @@ public class CollisionHandler {
             connectedPlayer.solidArea.y += connectedPlayer.worldY;
 
             switch (entity.direction) {
-                case "UP":
+                case "UP" -> {
                     entity.solidArea.y -= entity.speed;
                     if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
                         entity.collisionOn = true;
                     }
-                    break;
-                case "DOWN":
+                }
+                case "DOWN" -> {
                     entity.solidArea.y += entity.speed;
                     if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
                         entity.collisionOn = true;
                     }
-                    break;
-                case "LEFT":
+                }
+                case "LEFT" -> {
                     entity.solidArea.x -= entity.speed;
                     if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
                         entity.collisionOn = true;
                     }
-                    break;
-                case "RIGHT":
+                }
+                case "RIGHT" -> {
                     entity.solidArea.x += entity.speed;
                     if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
                         entity.collisionOn = true;
                     }
-                    break;
+                }
             }
             entity.solidArea.x = entity.solidAreaDefaultX;
             entity.solidArea.y = entity.solidAreaDefaultY;

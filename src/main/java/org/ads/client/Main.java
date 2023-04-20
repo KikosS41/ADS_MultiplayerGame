@@ -1,5 +1,7 @@
 package org.ads.client;
 
+import org.ads.statistics.ResourceMonitor;
+
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -11,7 +13,7 @@ public class Main {
         if (args.length > 0) {
             name = args[0];
         } else {
-             name = "Joueur" + (int) (Math.random() * 1000);
+            name = "Player" + (int) (Math.random() * 1000);
         }
         if (args.length > 1){
             skin = args[1];
@@ -25,6 +27,11 @@ public class Main {
                 skin = "girl";
             }
         }
+
+        ResourceMonitor resourceMonitor = new ResourceMonitor("stats/" + name + ".csv");
+        Thread resourceMonitorThread = new Thread(resourceMonitor);
+        resourceMonitorThread.start();
+
         GamePanel gamePanel = new GamePanel(name, skin,16,12);
         JFrame window = new JFrame();
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

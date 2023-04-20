@@ -4,26 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="communication between server and clients work ! no features in this version. need to had collision system and do a new map.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/CollisionHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/water_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/water_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/water_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/tiles/water_4.png" afterDir="false" />
+    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="V1.O">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/statistics/ResourceMonitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/CollisionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/CollisionHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/maps/map.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maps/map.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/player/boy_down_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/tilesets/tileset.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/tilesets/tileset.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +97,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -202,7 +193,7 @@
       <updated>1681748435527</updated>
       <workItem from="1681748436759" duration="21733000" />
       <workItem from="1681805680832" duration="29160000" />
-      <workItem from="1681897238350" duration="29891000" />
+      <workItem from="1681897238350" duration="40188000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1681748472545</created>
@@ -225,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681837321570</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="V1.O">
+      <created>1681939281323</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1681939281323</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +244,8 @@
     <MESSAGE value="Init" />
     <MESSAGE value="fusionning an old project with a client server system" />
     <MESSAGE value="communication between server and clients work ! no features in this version. need to had collision system and do a new map." />
-    <option name="LAST_COMMIT_MESSAGE" value="communication between server and clients work ! no features in this version. need to had collision system and do a new map." />
+    <MESSAGE value="V1.O" />
+    <option name="LAST_COMMIT_MESSAGE" value="V1.O" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

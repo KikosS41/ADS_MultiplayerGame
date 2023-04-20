@@ -43,9 +43,6 @@ public class GamePanel extends JPanel implements Runnable {
 
     // Game loop
     int FPS = 60;
-    // Communication
-    private String HOST = "localhost";
-    private int PORT = 8888;
     BufferedReader input;
     public PrintWriter output;
     MessageParser messageParser = new MessageParser();
@@ -72,6 +69,9 @@ public class GamePanel extends JPanel implements Runnable {
         player = new Player(this, keyHandler, name, skin);
 
         try {
+            // Communication
+            String HOST = "localhost";
+            int PORT = 8888;
             Socket socket = new Socket(HOST, PORT);
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             output = new PrintWriter(socket.getOutputStream(), true);
@@ -89,7 +89,7 @@ public class GamePanel extends JPanel implements Runnable {
 
     }
 
-    public void setupGame() throws IOException {
+    public void setupGame() {
     }
 
     public void startGame(){
@@ -129,9 +129,10 @@ public class GamePanel extends JPanel implements Runnable {
 
         // Draw map
         currentMap.draw(graphics2D);
-        // Draw boy
+        // Draw player
         player.draw(graphics2D);
 
+        // Draw connected players
         if (connectedPlayers != null){
             for (ConnectedPlayer connectedPlayer: connectedPlayers) {
                 connectedPlayer.draw(graphics2D);
