@@ -29,19 +29,6 @@ public abstract class Entity {
     }
 
     public void draw(Graphics2D graphics2D){
-
-        if(Objects.equals(isMoving, "YES")){
-            spriteCounter++;
-            if (spriteCounter > 10) {
-                if (spriteNumber == 1) {
-                    spriteNumber = 2;
-                } else if (spriteNumber == 2) {
-                    spriteNumber = 1;
-                }
-                spriteCounter = 0;
-            }
-        }
-
         BufferedImage image = null;
 
         int screenX = worldX - gamePanel.player.worldX + gamePanel.player.screenX;
@@ -52,44 +39,65 @@ public abstract class Entity {
                 worldY + gamePanel.tileSize > gamePanel.player.worldY - gamePanel.player.screenY &&
                 worldY - gamePanel.tileSize < gamePanel.player.worldY + gamePanel.player.screenY) {
 
-            switch(direction) {
-                case "DOWN":
-                    if(spriteNumber == 1) {
+            switch (direction) {
+                case "DOWN" -> {
+                    if (spriteNumber == 1) {
                         image = down1;
-                    }
-                    else if(spriteNumber == 2) {
+                    } else if (spriteNumber == 2) {
                         image = down2;
                     }
-                    break;
-                case "LEFT":
-                    if(spriteNumber == 1) {
+                }
+                case "LEFT" -> {
+                    if (spriteNumber == 1) {
                         image = left1;
-                    }
-                    else if(spriteNumber == 2) {
+                    } else if (spriteNumber == 2) {
                         image = left2;
                     }
-                    break;
-                case "RIGHT":
-                    if(spriteNumber == 1) {
+                }
+                case "RIGHT" -> {
+                    if (spriteNumber == 1) {
                         image = right1;
-                    }
-                    else if(spriteNumber == 2) {
+                    } else if (spriteNumber == 2) {
                         image = right2;
                     }
-                    break;
-                case "UP":
-                    if(spriteNumber == 1) {
+                }
+                case "UP" -> {
+                    if (spriteNumber == 1) {
                         image = up1;
-                    }
-                    else if(spriteNumber == 2) {
+                    } else if (spriteNumber == 2) {
                         image = up2;
                     }
-                    break;
-                default:
-                    break;
+                }
+                default -> {
+                }
             }
 
             graphics2D.drawImage(image, screenX, screenY, gamePanel.tileSize, gamePanel.tileSize, null);
+        }
+    }
+
+    public void updateAnimation(){
+        if(isMoving.equals("YES")){
+            spriteCounter++;
+            if (spriteCounter > 10) {
+                if (spriteNumber == 1) {
+                    spriteNumber = 2;
+                } else if (spriteNumber == 2) {
+                    spriteNumber = 1;
+                }
+                spriteCounter = 0;
+            }
+        }
+    }
+
+    public void moveEntity(){
+        if (!collisionOn) {
+            switch (direction) {
+                case "UP" -> worldY -= speed;
+                case "DOWN" -> worldY += speed;
+                case "LEFT" -> worldX -= speed;
+                case "RIGHT" -> worldX += speed;
+            }
         }
     }
 

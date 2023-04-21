@@ -9,12 +9,10 @@ import java.util.ArrayList;
 public class InputThread implements Runnable{
     private final BufferedReader input;
     private final GamePanel gamePanel;
-
     public InputThread(BufferedReader input, GamePanel gamePanel) {
         this.input = input;
         this.gamePanel = gamePanel;
     }
-
     @Override
     public void run() {
         String message;

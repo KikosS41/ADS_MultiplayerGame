@@ -6,19 +6,20 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class ServerUpdateThread implements Runnable {
+public class OutputThread implements Runnable {
     private final GamePanel gamePanel;
 
     private final DateTimeFormatter DATE_TIME_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     long timestampTotal;
 
-    public ServerUpdateThread(GamePanel gamePanel) {
+    public OutputThread(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
     }
 
     @Override
     public void run() {
         boolean shouldRun = true;
+
         while (shouldRun) {
             LocalDateTime now = LocalDateTime.now();
             if(gamePanel.timestampReceived != 0 && gamePanel.timestampSent!= 0){
