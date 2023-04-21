@@ -2,7 +2,7 @@ package org.ads.client.entities;
 
 import org.ads.client.GamePanel;
 
-import java.util.Objects;
+import java.util.ArrayList;
 
 public class ConnectedPlayer extends Entity {
     public ConnectedPlayer(GamePanel gamePanel, String name, int worldX, int worldY, int speed, String direction,String skin){
@@ -22,5 +22,26 @@ public class ConnectedPlayer extends Entity {
         this.speed = speed;
         this.direction = direction;
         this.isMoving = isMoving;
+    }
+    public void updateByPrediction(ArrayList<ConnectedPlayer> connectedPlayersCopy){
+        connectedPlayersCopy.remove(this);
+        if(isMoving.equals("YES")){
+            //CHECK TILE COLLISION
+            collisionOn = false;
+            gamePanel.collisionHandler.checkTile(this);
+
+            //CHECK ENTITY COLLISION
+            gamePanel.collisionHandler.checkConnectedPlayers(this, connectedPlayersCopy);
+
+            //IF COLLISION IS FALSE PLAYER CAN MOVE
+            if (!collisionOn) {
+                switch (direction) {
+                    case "UP" -> worldY -= speed;
+                    case "DOWN" -> worldY += speed;
+                    case "LEFT" -> worldX -= speed;
+                    case "RIGHT" -> worldX += speed;
+                }
+            }
+        }
     }
 }

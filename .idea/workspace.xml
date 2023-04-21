@@ -10,16 +10,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="[END] V1.0 with stats">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/ServerUpdateThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/statistics/ResourceMonitor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/statistics/ResourceMonitor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,12 +44,12 @@
               <option name="branches">
                 <list>
                   <RecentBranch>
-                    <option name="branchName" value="main" />
-                    <option name="lastUsedInstant" value="1681748556" />
+                    <option name="branchName" value="V2-prediction-system" />
+                    <option name="lastUsedInstant" value="1682006874" />
                   </RecentBranch>
                   <RecentBranch>
-                    <option name="branchName" value="master" />
-                    <option name="lastUsedInstant" value="1681748555" />
+                    <option name="branchName" value="main" />
+                    <option name="lastUsedInstant" value="1681748556" />
                   </RecentBranch>
                 </list>
               </option>
@@ -91,28 +84,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
-    "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/local_librairies/sigar-1.6.5.132-7.jar",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Killian/git/ADS_MultiplayerGame/local_librairies/sigar-1.6.5.132-7.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
@@ -127,7 +120,7 @@
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main Client (2)">
+  <component name="RunManager" selected="Application.Main Client (1)">
     <configuration name="Main Client (1)" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="org.ads.client.Main" />
       <module name="ADS_MultiplayerGame" />
@@ -217,7 +210,8 @@
       <workItem from="1681897238350" duration="40282000" />
       <workItem from="1681979491017" duration="5967000" />
       <workItem from="1681988392402" duration="326000" />
-      <workItem from="1681988731652" duration="13363000" />
+      <workItem from="1681988731652" duration="20491000" />
+      <workItem from="1682026210630" duration="345000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1681748472545</created>
@@ -254,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1681949079161</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="[END] V1.0 with stats">
+      <created>1682005830344</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682005830344</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

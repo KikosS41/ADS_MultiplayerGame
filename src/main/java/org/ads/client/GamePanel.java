@@ -3,6 +3,7 @@ package org.ads.client;
 import org.ads.client.map_parser.MapParser;
 import org.ads.client.entities.ConnectedPlayer;
 import org.ads.client.entities.Player;
+import org.ads.server.PlayerHandler;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,6 +13,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.List;
 
 public class GamePanel extends JPanel implements Runnable {
     public CollisionHandler collisionHandler ;
@@ -127,6 +129,14 @@ public class GamePanel extends JPanel implements Runnable {
 
     private void update() {
         player.update();
+
+        // faire une copie de la liste connectedPlayers
+        //ArrayList<ConnectedPlayer> connectedPlayersCopy = new ArrayList<>(connectedPlayers);
+
+        // itérer sur la copie de la liste
+        //for (ConnectedPlayer connectedPlayer: connectedPlayersCopy) {
+        //    connectedPlayer.updateByPrediction(connectedPlayersCopy);
+        //}
     }
 
     public void paintComponent(Graphics graphics){
@@ -138,12 +148,16 @@ public class GamePanel extends JPanel implements Runnable {
         // Draw player
         player.draw(graphics2D);
 
-        // Draw connected players
-        if (connectedPlayers != null){
-            for (ConnectedPlayer connectedPlayer: connectedPlayers) {
+        // faire une copie de la liste connectedPlayers
+        ArrayList<ConnectedPlayer> connectedPlayersCopy = new ArrayList<>(connectedPlayers);
+
+        // itérer sur la copie de la liste
+        if (connectedPlayersCopy.size() > 0){
+            for (ConnectedPlayer connectedPlayer: connectedPlayersCopy) {
                 connectedPlayer.draw(graphics2D);
             }
         }
+
         graphics2D.dispose();
     }
     public void close(){
