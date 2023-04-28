@@ -8,6 +8,7 @@ import org.json.JSONObject;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -25,8 +26,7 @@ public class MapParser {
     public MapParser(String mapPath, GamePanel gamePanel) throws IOException {
         this.gamePanel = gamePanel;
         this.mapPath = mapPath;
-        // InputStreamReader inputStreamReader = new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream(mapPath)));
-        String inputStreamReader = Files.readString(Path.of(mapPath));
+        String inputStreamReader = new String(Objects.requireNonNull(getClass().getResourceAsStream(mapPath)).readAllBytes(), StandardCharsets.UTF_8);
         JSONObject map = new JSONObject(inputStreamReader);
 
         width = map.getInt("width");
@@ -44,11 +44,7 @@ public class MapParser {
     }
 
     public void loadMap() throws IOException {
-        // Load map :
-        // Get and write each layer of the map by splitting "layersArray" in "layers"
-
-        // InputStreamReader inputStreamReader = new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream(mapPath)));
-        String inputStreamReader = Files.readString(Path.of(mapPath));
+        String inputStreamReader = new String(Objects.requireNonNull(getClass().getResourceAsStream(mapPath)).readAllBytes(), StandardCharsets.UTF_8);
         JSONObject map = new JSONObject(inputStreamReader);
 
         layers = new ArrayList<>();
@@ -68,10 +64,7 @@ public class MapParser {
         }
 
         // Load tileset
-        //String tilesetPath = map.getJSONArray("tilesets").getJSONObject(0).getString("source"); // /!\ ici on ne peut recuperer qu'un seul tileset, comment s'il y en a plusieurs ? (faire boucle foreach qui parcourt chaque JSONObject du JSON array et écrire chaque source dans une ArrayList<>)
-        //JSONObject tileset = new JSONObject(new InputStreamReader(Objects.requireNonNull(getClass().getResourceAsStream(tilesetPath))));
-
-        inputStreamReader = Files.readString(Path.of("src/main/resources/tilesets/tileset.json"));
+        inputStreamReader = new String(Objects.requireNonNull(getClass().getResourceAsStream("/tilesets/tileset.json")).readAllBytes(), StandardCharsets.UTF_8);
         JSONObject tileset = new JSONObject(inputStreamReader);
 
         tiles = new Tile[tileset.getInt("tilecount")+1];

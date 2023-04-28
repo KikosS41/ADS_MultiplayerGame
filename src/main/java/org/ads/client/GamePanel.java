@@ -28,7 +28,7 @@ public class GamePanel implements Runnable {
     KeyHandler keyHandler = new KeyHandler();
 
     // Map parser
-    MapParser currentMap = new MapParser("src/main/resources/maps/map.json", this); // /maps/map.json
+    MapParser currentMap = new MapParser("/maps/map.json", this); // /maps/map.json
 
     // World settings (initialised at current.getMapInfo(this) in constructor)
     public int maxWorldCol;
@@ -82,8 +82,7 @@ public class GamePanel implements Runnable {
             output = new PrintWriter(socket.getOutputStream(), true);
             output.println("JOIN " + player.name + " " + player.worldX + " " + player.worldY + " " +player.speed + " " + player.direction + " " +player.skin);
             InputThread inputThread = new InputThread(input, this);
-            Thread inputThreadThread = new Thread(inputThread);
-            inputThreadThread.start();
+            Thread.ofVirtual().start(inputThread);
         } catch (IOException e) {
             System.err.println("Erreur lors de la connexion au serveur.");
             System.exit(1);
@@ -101,7 +100,7 @@ public class GamePanel implements Runnable {
 
         // Start message Sender Thread
         OutputThread outputThread = new OutputThread(this);
-        new Thread(outputThread).start();
+        Thread.ofVirtual().start(outputThread);
 
         // Start Rendering Thread
         RenderingThread renderingThread = new RenderingThread(this);
@@ -125,7 +124,7 @@ public class GamePanel implements Runnable {
         window.setLocationRelativeTo(null);
         window.setVisible(true);
 
-        new Thread(renderingThread).start();
+        Thread.ofVirtual().start(renderingThread);
 
     }
     @Override
