@@ -11,7 +11,6 @@
   <component name="ChangeListManager">
     <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="little bug corrected, and added prediction for the v2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,14 +110,28 @@
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\boy" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\V1" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF\SERVER" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF\CLIENT" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\local_librairies" />
-      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\girl" />
     </key>
   </component>
-  <component name="RunManager" selected="JAR Application.Server">
+  <component name="RunManager" selected="Application.Main Client (1)">
+    <configuration name="Main Client (1)" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="org.ads.client.Main" />
+      <module name="ADS_MultiplayerGame" />
+      <option name="VM_PARAMETERS" value="--enable-preview" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.ads.client.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main Client" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="org.ads.client.Main" />
       <module name="ADS_MultiplayerGame" />
@@ -168,6 +181,7 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main Client (1)" />
       <item itemvalue="Application.Main Server" />
       <item itemvalue="Application.Main Client" />
       <item itemvalue="JAR Application.Server" />
