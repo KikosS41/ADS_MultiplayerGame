@@ -22,7 +22,7 @@ public abstract class Entity {
     public Rectangle solidArea = new Rectangle(0,0,48,48);
 
     public BufferedImage up1, up2, down1, down2, left1, left2, right1, right2;
-    public Entity(GamePanel gamePanel, String skin){
+    public Entity(GamePanel gamePanel,String skin){
         this.gamePanel = gamePanel;
         isMoving = "NO";
         getImages(skin);
@@ -90,17 +90,6 @@ public abstract class Entity {
         }
     }
 
-    public void moveEntity(){
-        if (!collisionOn) {
-            switch (direction) {
-                case "UP" -> worldY -= speed;
-                case "DOWN" -> worldY += speed;
-                case "LEFT" -> worldX -= speed;
-                case "RIGHT" -> worldX += speed;
-            }
-        }
-    }
-
     private void getImages(String skin){
         up1 = setup("/"+skin+"/up_1.png");
         up2 = setup("/"+skin+"/up_2.png");
@@ -122,5 +111,35 @@ public abstract class Entity {
             e.printStackTrace();
         }
         return image;
+    }
+
+    public void update(int worldX, int worldY, String direction, String isMoving) {
+        this.worldX = worldX;
+        this.worldY = worldY;
+        this.direction = direction;
+        this.isMoving = isMoving;
+    }
+
+    public void predict(){
+        if(isMoving.equals("YES")){
+            collisionOn = false;
+            //gamePanel.collisionHandler.checkTile(this);
+
+            //gamePanel.collisionHandler.checkConnectedPlayers(this, gamePanel.getConnectedPlayers());
+            //gamePanel.collisionHandler.checkPlayer(this, gamePanel.getPlayer());
+
+            moveEntity();
+        }
+    }
+
+    public void moveEntity(){
+        if (!collisionOn) {
+            switch (direction) {
+                case "UP" -> worldY -= speed;
+                case "DOWN" -> worldY += speed;
+                case "LEFT" -> worldX -= speed;
+                case "RIGHT" -> worldX += speed;
+            }
+        }
     }
 }

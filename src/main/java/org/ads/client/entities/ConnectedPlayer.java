@@ -13,23 +13,4 @@ public class ConnectedPlayer extends Entity {
         this.skin = skin;
         this.isMoving = "NO";
     }
-
-    public void update(int worldX, int worldY, int speed, String direction, String isMoving){
-        this.worldX = worldX;
-        this.worldY = worldY;
-        this.speed = speed;
-        this.direction = direction;
-        this.isMoving = isMoving;
-    }
-    public void predict(){
-        if(isMoving.equals("YES")){
-            collisionOn = false;
-            gamePanel.collisionHandler.checkTile(this);
-
-            gamePanel.collisionHandler.checkConnectedPlayers(this, gamePanel.getConnectedPlayers());
-            gamePanel.collisionHandler.checkPlayer(this, gamePanel.getPlayer());
-
-            moveEntity();
-        }
-    }
 }

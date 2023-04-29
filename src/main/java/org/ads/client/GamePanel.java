@@ -25,7 +25,7 @@ public class GamePanel implements Runnable {
     int maxScreenRow;
     public int screenWidth;
     public int screenHeight;
-    KeyHandler keyHandler = new KeyHandler();
+    KeyHandler keyHandler;
 
     // Map parser
     MapParser currentMap = new MapParser("/maps/map.json", this); // /maps/map.json
@@ -37,8 +37,10 @@ public class GamePanel implements Runnable {
     public int worldHeight;
 
     // Entities
+    public String name;
+
     public Player player; // Initialised in constructor
-    private ArrayList<ConnectedPlayer> connectedPlayers = new ArrayList<>();
+    ArrayList<ConnectedPlayer> connectedPlayers = new ArrayList<>();
 
     // Thread for game loop
     Thread gameThread;
@@ -52,7 +54,8 @@ public class GamePanel implements Runnable {
     MessageParser messageParser = new MessageParser();
     long timestampSent, timestampReceived;
 
-    public GamePanel(String name, String skin, int maxScreenCol, int maxScreenRow) throws IOException {
+    public GamePanel(String name, int maxScreenCol, int maxScreenRow) throws IOException {
+        this.name = name;
         this.maxScreenCol = maxScreenCol;
         this.maxScreenRow = maxScreenRow;
 
@@ -67,10 +70,10 @@ public class GamePanel implements Runnable {
         screenWidth = tileSize * this.maxScreenCol;
         screenHeight = tileSize * this.maxScreenRow;
 
-        player = new Player(this, keyHandler, name, skin);
-
         currentMap.loadMap();
         collisionHandler = new CollisionHandler(this);
+
+        player = new Player(name, 20,20,0,"boy",this);
     }
     public void setupGame() {
         try {
@@ -80,7 +83,7 @@ public class GamePanel implements Runnable {
             Socket socket = new Socket(HOST, PORT);
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             output = new PrintWriter(socket.getOutputStream(), true);
-            output.println("JOIN " + player.name + " " + player.worldX + " " + player.worldY + " " +player.speed + " " + player.direction + " " +player.skin);
+            output.println("JOIN " + name);
             InputThread inputThread = new InputThread(input, this);
             Thread.ofVirtual().start(inputThread);
         } catch (IOException e) {
@@ -89,18 +92,16 @@ public class GamePanel implements Runnable {
         }
     }
     public void startGame() throws IOException {
+        keyHandler = new KeyHandler(output);
+
         // Start Stats Generator
-        ResourceMonitor resourceMonitor = new ResourceMonitor("stats/" + player.name + ".csv");
+        ResourceMonitor resourceMonitor = new ResourceMonitor("stats/" + name + ".csv");
         Thread resourceMonitorThread = new Thread(resourceMonitor);
         resourceMonitorThread.start();
 
         // Start Game Thread
         gameThread = new Thread(this);
         gameThread.start();
-
-        // Start message Sender Thread
-        OutputThread outputThread = new OutputThread(this);
-        Thread.ofVirtual().start(outputThread);
 
         // Start Rendering Thread
         RenderingThread renderingThread = new RenderingThread(this);
@@ -115,7 +116,7 @@ public class GamePanel implements Runnable {
         });
 
         window.setResizable(false);
-        window.setTitle("Client : " + player.name);
+        window.setTitle("Client : " + name);
 
         window.add(renderingThread);
 
@@ -146,9 +147,8 @@ public class GamePanel implements Runnable {
         }
     }
     private void update() {
-        player.update();
         player.updateAnimation();
-
+        player.predict();
         for (ConnectedPlayer connectedPlayer:connectedPlayers) {
             connectedPlayer.updateAnimation();
             connectedPlayer.predict();
@@ -161,11 +161,18 @@ public class GamePanel implements Runnable {
     public ArrayList<ConnectedPlayer> getConnectedPlayers() {
         return new ArrayList<>(connectedPlayers);
     }
-    public void setConnectedPlayers(ArrayList<ConnectedPlayer> connectedPlayers) {
-        this.connectedPlayers = connectedPlayers;
-    }
 
     public Player getPlayer() {
         return new Player(this ,player);
+    }
+
+    public void updatePlayers(String name, int worldX, int worldY, String direction, String isMoving) {
+        if (this.name.equals(name)){
+            player.update(worldX, worldY, direction, isMoving);
+        } else {
+            for (ConnectedPlayer connectedPlayer: getConnectedPlayers()) {
+                connectedPlayer.update(worldX,worldY,direction,isMoving);
+            }
+        }
     }
 }

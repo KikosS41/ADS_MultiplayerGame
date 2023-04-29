@@ -2,10 +2,17 @@ package org.ads.client;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.PrintWriter;
 
 public class KeyHandler implements KeyListener {
 
-    public boolean upPressed, downPressed, leftPressed, rightPressed;
+    boolean keyAlreadyPressed = false;
+    PrintWriter output;
+
+    public KeyHandler(PrintWriter output) {
+        this.output = output;
+    }
+
     @Override
     public void keyTyped(KeyEvent e) {
 
@@ -13,27 +20,37 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-        if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            leftPressed = true;
-        } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            rightPressed = true;
-        } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            upPressed = true;
-        } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            downPressed = true;
+        if(!keyAlreadyPressed){
+            if (e.getKeyCode() == KeyEvent.VK_LEFT) {
+                output.println("EVENT LEFT YES");
+                keyAlreadyPressed = true;
+            } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
+                output.println("EVENT RIGHT YES");
+                keyAlreadyPressed = true;
+            } else if (e.getKeyCode() == KeyEvent.VK_UP) {
+                output.println("EVENT UP YES");
+                keyAlreadyPressed = true;
+            } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+                output.println("EVENT DOWN YES");
+                keyAlreadyPressed = true;
+            }
         }
     }
 
     @Override
     public void keyReleased(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            leftPressed = false;
+            output.println("EVENT LEFT NO");
+            keyAlreadyPressed = false;
         } else if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            rightPressed = false;
+            output.println("EVENT RIGHT NO");
+            keyAlreadyPressed = false;
         } else if (e.getKeyCode() == KeyEvent.VK_UP) {
-            upPressed = false;
+            output.println("EVENT UP NO");
+            keyAlreadyPressed = false;
         } else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-            downPressed = false;
+            output.println("EVENT DOWN NO");
+            keyAlreadyPressed = false;
         }
     }
 }

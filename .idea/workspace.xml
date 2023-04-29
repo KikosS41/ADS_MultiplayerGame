@@ -2,15 +2,31 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="ADS_Client" />
+      <artifact name="ADS_Server" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="little bug corrected, and added prediction for the v2">
+    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="generated all artifacts of V1 and V2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/ConnectionManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/GameThread.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/MessageParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/OutputThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/KeyHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/OutputThread.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/InputThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +58,10 @@
             <RecentBranchesForRepo>
               <option name="branches">
                 <list>
+                  <RecentBranch>
+                    <option name="branchName" value="V3-authority-server" />
+                    <option name="lastUsedInstant" value="1682766039" />
+                  </RecentBranch>
                   <RecentBranch>
                     <option name="branchName" value="main" />
                     <option name="lastUsedInstant" value="1681748556" />
@@ -79,35 +99,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Killian/git/ADS_MultiplayerGame&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.projectsettings.compiler.javacompiler&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
+    "go.import.settings.migrated": "true",
+    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/V2",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Artifacts",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\V2" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\out\artifacts\ADS_Client" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
-      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\boy" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\V1" />
@@ -269,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682722851703</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="generated all artifacts of V1 and V2">
+      <created>1682762739595</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1682762739595</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -308,10 +335,27 @@
     <MESSAGE value="re-structured all the project in more threads : now we have 3 parts : Rendering, Data reception from server and Data sender to server. all are manage in the GamePanel which is created in the Main. more over, there is an all re-structuration of functions and variables access. With these changes, the prediction could be added successfully." />
     <MESSAGE value="re-structured all the project in more threads : now we have 3 parts : Rendering, Data reception from server and Data sender to server. all are manage in the GamePanel which is created in the Main. more over, there is an all re-structuration of functions and variables access. With these changes, the prediction could be added successfully.&#10;The actual problem is that all thread consume too much ressources. let's see how works virtual thread. Moreover it would be great to find a solution to solve the warning about the socket in GamePanel." />
     <MESSAGE value="little bug corrected, and added prediction for the v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="little bug corrected, and added prediction for the v2" />
+    <MESSAGE value="generated all artifacts of V1 and V2" />
+    <option name="LAST_COMMIT_MESSAGE" value="generated all artifacts of V1 and V2" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java</url>
+          <line>171</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java</url>
+          <line>169</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
