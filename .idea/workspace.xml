@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="ADS_Server" />
+      <artifact name="ADS_Client" />
     </artifacts-to-build>
   </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="re-structured all the project in more threads : now we have 3 parts : Rendering, Data reception from server and Data sender to server. all are manage in the GamePanel which is created in the Main. more over, there is an all re-structuration of functions and variables access. With these changes, the prediction could be added successfully.&#10;The actual problem is that all thread consume too much ressources. let's see how works virtual thread. Moreover it would be great to find a solution to solve the warning about the socket in GamePanel.">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="little bug corrected, and added prediction for the v2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/map_parser/MapParser.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +93,7 @@
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/src/main/resources/META-INF/CLIENT/MANIFEST.MF",
+    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -111,11 +108,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\out\artifacts\ADS_Client" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\boy" />
-      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\tiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF" />
@@ -204,7 +201,7 @@
       <workItem from="1682026210630" duration="345000" />
       <workItem from="1682101462552" duration="5615000" />
       <workItem from="1682344515389" duration="2809000" />
-      <workItem from="1682720436217" duration="2069000" />
+      <workItem from="1682720436217" duration="2462000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1681748472545</created>
@@ -255,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682083471525</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="little bug corrected, and added prediction for the v2">
+      <created>1682722851703</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1682722851703</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -293,7 +297,8 @@
     <MESSAGE value="[END] V1.0 with stats" />
     <MESSAGE value="re-structured all the project in more threads : now we have 3 parts : Rendering, Data reception from server and Data sender to server. all are manage in the GamePanel which is created in the Main. more over, there is an all re-structuration of functions and variables access. With these changes, the prediction could be added successfully." />
     <MESSAGE value="re-structured all the project in more threads : now we have 3 parts : Rendering, Data reception from server and Data sender to server. all are manage in the GamePanel which is created in the Main. more over, there is an all re-structuration of functions and variables access. With these changes, the prediction could be added successfully.&#10;The actual problem is that all thread consume too much ressources. let's see how works virtual thread. Moreover it would be great to find a solution to solve the warning about the socket in GamePanel." />
-    <option name="LAST_COMMIT_MESSAGE" value="re-structured all the project in more threads : now we have 3 parts : Rendering, Data reception from server and Data sender to server. all are manage in the GamePanel which is created in the Main. more over, there is an all re-structuration of functions and variables access. With these changes, the prediction could be added successfully.&#10;The actual problem is that all thread consume too much ressources. let's see how works virtual thread. Moreover it would be great to find a solution to solve the warning about the socket in GamePanel." />
+    <MESSAGE value="little bug corrected, and added prediction for the v2" />
+    <option name="LAST_COMMIT_MESSAGE" value="little bug corrected, and added prediction for the v2" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
