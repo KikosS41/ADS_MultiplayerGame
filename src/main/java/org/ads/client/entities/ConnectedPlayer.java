@@ -2,8 +2,6 @@ package org.ads.client.entities;
 
 import org.ads.client.GamePanel;
 
-import java.util.Objects;
-
 public class ConnectedPlayer extends Entity {
     public ConnectedPlayer(GamePanel gamePanel, String name, int worldX, int worldY, int speed, String direction,String skin){
         super(gamePanel, skin);
@@ -22,5 +20,16 @@ public class ConnectedPlayer extends Entity {
         this.speed = speed;
         this.direction = direction;
         this.isMoving = isMoving;
+    }
+    public void predict(){
+        if(isMoving.equals("YES")){
+            collisionOn = false;
+            gamePanel.collisionHandler.checkTile(this);
+
+            gamePanel.collisionHandler.checkConnectedPlayers(this, gamePanel.getConnectedPlayers());
+            gamePanel.collisionHandler.checkPlayer(this, gamePanel.getPlayer());
+
+            moveEntity();
+        }
     }
 }

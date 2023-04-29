@@ -1,10 +1,5 @@
 package org.ads.client;
 
-import org.ads.statistics.ResourceMonitor;
-
-import javax.swing.*;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 public class Main {
@@ -28,30 +23,7 @@ public class Main {
             }
         }
 
-        ResourceMonitor resourceMonitor = new ResourceMonitor("stats/" + name + ".csv");
-        Thread resourceMonitorThread = new Thread(resourceMonitor);
-        resourceMonitorThread.start();
-
         GamePanel gamePanel = new GamePanel(name, skin,16,12);
-        JFrame window = new JFrame();
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.addWindowListener(new WindowAdapter() {
-            @Override
-            public void windowClosing(WindowEvent event) {
-                gamePanel.close();
-            }
-        });
-
-        window.setResizable(false);
-        window.setTitle("Client : " + name);
-
-        window.add(gamePanel);
-
-        window.pack();
-
-        window.setLocationRelativeTo(null);
-        window.setVisible(true);
-
         gamePanel.setupGame();
         gamePanel.startGame();
     }

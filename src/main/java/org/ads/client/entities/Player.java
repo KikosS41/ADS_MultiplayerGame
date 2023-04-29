@@ -5,7 +5,7 @@ import org.ads.client.KeyHandler;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.util.Objects;
+
 
 public class Player extends Entity{
     KeyHandler keyHandler;
@@ -28,57 +28,43 @@ public class Player extends Entity{
         worldY = gamePanel.tileSize * 20;
         speed = 4;
         direction = "DOWN";
-
     }
 
+    public Player(GamePanel gamePanel, Player player){
+        super(gamePanel,player.skin);
+
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
+
+        this.worldX = player.worldX;
+        this.worldY = player.worldY;
+    }
     public void update() {
         if (keyHandler.upPressed || keyHandler.downPressed || keyHandler.leftPressed || keyHandler.rightPressed) {
             isMoving = "YES";
 
-            if (keyHandler.upPressed) {
-                direction = "UP";
-            } else if (keyHandler.downPressed) {
-                direction = "DOWN";
-            } else if (keyHandler.leftPressed) {
+            if (keyHandler.leftPressed) {
                 direction = "LEFT";
             } else if (keyHandler.rightPressed) {
                 direction = "RIGHT";
+            } else if (keyHandler.upPressed) {
+                direction = "UP";
+            }  else {
+                direction = "DOWN";
             }
 
-            //CHECK TILE COLLISION
             collisionOn = false;
             gamePanel.collisionHandler.checkTile(this);
 
-            //CHECK ENTITY COLLISION
             gamePanel.collisionHandler.checkConnectedPlayers(this, gamePanel.getConnectedPlayers());
 
-            //IF COLLISION IS FALSE PLAYER CAN MOVE
-            if (!collisionOn) {
-                switch (direction) {
-                    case "UP" -> worldY -= speed;
-                    case "DOWN" -> worldY += speed;
-                    case "LEFT" -> worldX -= speed;
-                    case "RIGHT" -> worldX += speed;
-                }
-            }
+            moveEntity();
         } else {
             isMoving = "NO";
         }
     }
 
     public void draw(Graphics2D graphics2D) {
-        if(Objects.equals(isMoving, "YES")){
-            spriteCounter++;
-            if (spriteCounter > 10) {
-                if (spriteNumber == 1) {
-                    spriteNumber = 2;
-                } else if (spriteNumber == 2) {
-                    spriteNumber = 1;
-                }
-                spriteCounter = 0;
-            }
-        }
-
         BufferedImage image = null;
         switch (direction) {
             case "DOWN" -> {

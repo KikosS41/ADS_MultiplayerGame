@@ -2,6 +2,7 @@ package org.ads.client;
 
 import org.ads.client.entities.ConnectedPlayer;
 import org.ads.client.entities.Entity;
+import org.ads.client.entities.Player;
 
 import java.util.ArrayList;
 
@@ -65,43 +66,85 @@ public class CollisionHandler {
 
     public void checkConnectedPlayers(Entity entity, ArrayList<ConnectedPlayer> connectedPlayers) {
         for (ConnectedPlayer connectedPlayer: connectedPlayers) {
-            entity.solidArea.x += entity.worldX;
-            entity.solidArea.y += entity.worldY;
+            if (connectedPlayer !=entity) {
+                entity.solidArea.x += entity.worldX;
+                entity.solidArea.y += entity.worldY;
 
-            connectedPlayer.solidArea.x += connectedPlayer.worldX;
-            connectedPlayer.solidArea.y += connectedPlayer.worldY;
+                connectedPlayer.solidArea.x += connectedPlayer.worldX;
+                connectedPlayer.solidArea.y += connectedPlayer.worldY;
 
-            switch (entity.direction) {
-                case "UP" -> {
-                    entity.solidArea.y -= entity.speed;
-                    if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
-                        entity.collisionOn = true;
+                switch (entity.direction) {
+                    case "UP" -> {
+                        entity.solidArea.y -= entity.speed;
+                        if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
+                            entity.collisionOn = true;
+                        }
+                    }
+                    case "DOWN" -> {
+                        entity.solidArea.y += entity.speed;
+                        if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
+                            entity.collisionOn = true;
+                        }
+                    }
+                    case "LEFT" -> {
+                        entity.solidArea.x -= entity.speed;
+                        if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
+                            entity.collisionOn = true;
+                        }
+                    }
+                    case "RIGHT" -> {
+                        entity.solidArea.x += entity.speed;
+                        if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
+                            entity.collisionOn = true;
+                        }
                     }
                 }
-                case "DOWN" -> {
-                    entity.solidArea.y += entity.speed;
-                    if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
-                        entity.collisionOn = true;
-                    }
-                }
-                case "LEFT" -> {
-                    entity.solidArea.x -= entity.speed;
-                    if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
-                        entity.collisionOn = true;
-                    }
-                }
-                case "RIGHT" -> {
-                    entity.solidArea.x += entity.speed;
-                    if (entity.solidArea.intersects(connectedPlayer.solidArea)) {
-                        entity.collisionOn = true;
-                    }
+                entity.solidArea.x = entity.solidAreaDefaultX;
+                entity.solidArea.y = entity.solidAreaDefaultY;
+
+                connectedPlayer.solidArea.x = connectedPlayer.solidAreaDefaultX;
+                connectedPlayer.solidArea.y = connectedPlayer.solidAreaDefaultY;
+            }
+        }
+    }
+
+    public void checkPlayer(ConnectedPlayer connectedPlayer, Player player) {
+        connectedPlayer.solidArea.x += connectedPlayer.worldX;
+        connectedPlayer.solidArea.y += connectedPlayer.worldY;
+
+        player.solidArea.x += player.worldX;
+        player.solidArea.y += player.worldY;
+
+        switch (connectedPlayer.direction) {
+            case "UP" -> {
+                connectedPlayer.solidArea.y -= connectedPlayer.speed;
+                if (connectedPlayer.solidArea.intersects(player.solidArea)) {
+                    connectedPlayer.collisionOn = true;
                 }
             }
-            entity.solidArea.x = entity.solidAreaDefaultX;
-            entity.solidArea.y = entity.solidAreaDefaultY;
-
-            connectedPlayer.solidArea.x = connectedPlayer.solidAreaDefaultX;
-            connectedPlayer.solidArea.y = connectedPlayer.solidAreaDefaultY;
+            case "DOWN" -> {
+                connectedPlayer.solidArea.y += connectedPlayer.speed;
+                if (connectedPlayer.solidArea.intersects(player.solidArea)) {
+                    connectedPlayer.collisionOn = true;
+                }
+            }
+            case "LEFT" -> {
+                connectedPlayer.solidArea.x -= connectedPlayer.speed;
+                if (connectedPlayer.solidArea.intersects(player.solidArea)) {
+                    connectedPlayer.collisionOn = true;
+                }
+            }
+            case "RIGHT" -> {
+                connectedPlayer.solidArea.x += connectedPlayer.speed;
+                if (connectedPlayer.solidArea.intersects(player.solidArea)) {
+                    connectedPlayer.collisionOn = true;
+                }
+            }
         }
+        connectedPlayer.solidArea.x = connectedPlayer.solidAreaDefaultX;
+        connectedPlayer.solidArea.y = connectedPlayer.solidAreaDefaultY;
+
+        player.solidArea.x = player.solidAreaDefaultX;
+        player.solidArea.y = player.solidAreaDefaultY;
     }
 }
