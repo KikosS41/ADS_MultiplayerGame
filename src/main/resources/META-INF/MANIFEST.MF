@@ -1,3 +1,2 @@
 Manifest-Version: 1.0
-Main-Class: org.ads.server.Main
-
+Main-Class: org.ads.client.Main
