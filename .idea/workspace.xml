@@ -9,24 +9,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="generated all artifacts of V1 and V2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/ConnectionManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/GameThread.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/MessageParser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/OutputThread.java" afterDir="false" />
+    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="Collision system added, it's works ! still need to optimize code and resolve some potential conflict thread">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/CollisionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/map_parser/MapParser.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/map_parser/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/InputThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/KeyHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/KeyHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/MessageParser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/OutputThread.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/ConnectedPlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Entity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/client/entities/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/GameThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/GameThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/InputThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/InputThread.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/MessageParser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/MessageParser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/PlayerHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/InputThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,6 +98,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
@@ -108,7 +106,7 @@
     "WebServerToolWindowFactoryState": "false",
     "database.data.extractors.current.export.id": "Comma-separated (CSV)_id",
     "go.import.settings.migrated": "true",
-    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/V2",
+    "last_opened_file_path": "C:/Users/Killian/git/ADS_MultiplayerGame/src/main/java/org/ads/server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -123,11 +121,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\java\org\ads\server" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\V2" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\out\artifacts\ADS_Client" />
-      <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\V1" />
@@ -135,6 +133,9 @@
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF\SERVER" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\src\main\resources\META-INF\CLIENT" />
       <recent name="C:\Users\Killian\git\ADS_MultiplayerGame\local_librairies" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.ads.server" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main Client (1)">
@@ -232,6 +233,7 @@
       <workItem from="1682101462552" duration="5615000" />
       <workItem from="1682344515389" duration="2809000" />
       <workItem from="1682720436217" duration="2462000" />
+      <workItem from="1682848278075" duration="3401000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1681748472545</created>
@@ -296,7 +298,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682762739595</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Communication is working, but all collision system part has been desactivated and the code is fully not optimised">
+      <created>1682786292740</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1682786292740</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -336,26 +345,12 @@
     <MESSAGE value="re-structured all the project in more threads : now we have 3 parts : Rendering, Data reception from server and Data sender to server. all are manage in the GamePanel which is created in the Main. more over, there is an all re-structuration of functions and variables access. With these changes, the prediction could be added successfully.&#10;The actual problem is that all thread consume too much ressources. let's see how works virtual thread. Moreover it would be great to find a solution to solve the warning about the socket in GamePanel." />
     <MESSAGE value="little bug corrected, and added prediction for the v2" />
     <MESSAGE value="generated all artifacts of V1 and V2" />
-    <option name="LAST_COMMIT_MESSAGE" value="generated all artifacts of V1 and V2" />
+    <MESSAGE value="Communication is working, but all collision system part has been desactivated and the code is fully not optimised" />
+    <MESSAGE value="Collision system added, it's works ! still need to optimize code and resolve some potential conflict thread" />
+    <option name="LAST_COMMIT_MESSAGE" value="Collision system added, it's works ! still need to optimize code and resolve some potential conflict thread" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java</url>
-          <line>171</line>
-          <option name="timeStamp" value="36" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/ads/client/GamePanel.java</url>
-          <line>169</line>
-          <option name="timeStamp" value="37" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

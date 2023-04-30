@@ -39,6 +39,16 @@ public class Player extends Entity{
         solidAreaDefaultY = solidArea.y;
     }
 
+    public void predict(){
+        if(isMoving.equals("YES")){
+            collisionOn = false;
+            gamePanel.collisionHandler.checkTile(this);
+
+            gamePanel.collisionHandler.checkConnectedPlayers(this, gamePanel.getConnectedPlayers());
+
+            moveEntity();
+        }
+    }
     public void draw(Graphics2D graphics2D) {
         BufferedImage image = null;
         switch (direction) {

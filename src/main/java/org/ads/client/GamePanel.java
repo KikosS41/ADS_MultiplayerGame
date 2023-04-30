@@ -16,7 +16,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 
 public class GamePanel implements Runnable {
-    public CollisionHandler collisionHandler ;
+    public CollisionHandler collisionHandler;
     // Screen Settings
     int originalTileSize;
     int scale = 3;
@@ -52,7 +52,6 @@ public class GamePanel implements Runnable {
 
     // Client-server part
     MessageParser messageParser = new MessageParser();
-    long timestampSent, timestampReceived;
 
     public GamePanel(String name, int maxScreenCol, int maxScreenRow) throws IOException {
         this.name = name;

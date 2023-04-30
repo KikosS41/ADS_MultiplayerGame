@@ -39,3 +39,9 @@ build/
 /.idea/
 /stats/
 /out/
+/V1/ADS_Client/stats/
+/V1/ADS_Server/stats/
+/V2/ADS_Client/stats/
+/V2/ADS_Server/stats/
+/V3/ADS_Client/stats/
+/V3/ADS_Server/stats/

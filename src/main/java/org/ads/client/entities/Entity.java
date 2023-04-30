@@ -120,18 +120,6 @@ public abstract class Entity {
         this.isMoving = isMoving;
     }
 
-    public void predict(){
-        if(isMoving.equals("YES")){
-            collisionOn = false;
-            //gamePanel.collisionHandler.checkTile(this);
-
-            //gamePanel.collisionHandler.checkConnectedPlayers(this, gamePanel.getConnectedPlayers());
-            //gamePanel.collisionHandler.checkPlayer(this, gamePanel.getPlayer());
-
-            moveEntity();
-        }
-    }
-
     public void moveEntity(){
         if (!collisionOn) {
             switch (direction) {

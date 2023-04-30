@@ -24,9 +24,9 @@ public class InputThread extends Thread {
 
             String message;
             while ((message = input.readLine()) != null){
-                String response = messageParser.parseMessage(message, this);
+                String response = messageParser.parseMessage(message, this, gameThread);
                 if (!response.equals("")){
-                    broadcast(response, this);
+                    broadcast(response);
                     if (response.split(" ")[0].equals("JOIN")){
                         for (InputThread player : gameThread.players) {
                             sendMessage("JOIN " + player.player.name + " " + player.player.worldX + " " + player.player.worldY + " " + player.player.speed + " " + player.player.skin);
@@ -48,7 +48,7 @@ public class InputThread extends Thread {
         output.println(message);
     }
 
-    public static void broadcast(String message, InputThread excludePlayer) {
+    public static void broadcast(String message) {
         for (InputThread player : gameThread.players) {
             player.sendMessage(message);
         }
