@@ -9,12 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="automatic spawn works !">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ads/server/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/maps/map.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/maps/map.json" afterDir="false" />
-    </list>
+    <list default="true" id="fc449a37-7a10-4309-af5a-ba6bb05e23e4" name="Changes" comment="update map and correct warnings" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -188,7 +183,7 @@
       <workItem from="1682344515389" duration="2809000" />
       <workItem from="1682720436217" duration="2462000" />
       <workItem from="1682848278075" duration="6944000" />
-      <workItem from="1683030118239" duration="8997000" />
+      <workItem from="1683030118239" duration="9186000" />
     </task>
     <task id="LOCAL-00001" summary="Init">
       <created>1681748472545</created>
@@ -281,7 +276,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683038982058</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="update map and correct warnings">
+      <created>1683039838270</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683039838270</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -325,7 +327,8 @@
     <MESSAGE value="Collision system added, it's works ! still need to optimize code and resolve some potential conflict thread" />
     <MESSAGE value="corrected some errors, re added random skin selector, start working on automatis spawn which takes in consideration collisions" />
     <MESSAGE value="automatic spawn works !" />
-    <option name="LAST_COMMIT_MESSAGE" value="automatic spawn works !" />
+    <MESSAGE value="update map and correct warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="update map and correct warnings" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>
