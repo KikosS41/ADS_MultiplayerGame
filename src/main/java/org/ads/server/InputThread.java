@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class InputThread extends Thread {
     private final Socket playerSocket;
@@ -28,12 +29,14 @@ public class InputThread extends Thread {
                 if (!response.equals("")){
                     broadcast(response);
                     if (response.split(" ")[0].equals("JOIN")){
-                        for (InputThread player : gameThread.players) {
+                        for (InputThread player : gameThread.getPlayers()) {
                             sendMessage("JOIN " + player.player.name + " " + player.player.worldX + " " + player.player.worldY + " " + player.player.speed + " " + player.player.skin);
                         }
                     }
                     if (response.split(" ")[0].equals("QUIT")){
-                        gameThread.players.remove(this);
+                        ArrayList<InputThread> players = gameThread.getPlayers();
+                        players.remove(this);
+                        gameThread.setPlayers(players);
                         this.interrupt();
                     }
                 }
@@ -49,7 +52,7 @@ public class InputThread extends Thread {
     }
 
     public static void broadcast(String message) {
-        for (InputThread player : gameThread.players) {
+        for (InputThread player : gameThread.getPlayers()) {
             player.sendMessage(message);
         }
     }

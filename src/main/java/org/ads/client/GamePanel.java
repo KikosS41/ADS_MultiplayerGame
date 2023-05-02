@@ -3,7 +3,7 @@ package org.ads.client;
 import org.ads.client.map_parser.MapParser;
 import org.ads.client.entities.ConnectedPlayer;
 import org.ads.client.entities.Player;
-import org.ads.statistics.ResourceMonitor;
+//import org.ads.statistics.ResourceMonitor;
 
 import javax.swing.*;
 import java.awt.event.WindowAdapter;
@@ -47,13 +47,17 @@ public class GamePanel implements Runnable {
 
     // Game loop
     int FPS = 60;
-    BufferedReader input;
-    public PrintWriter output;
 
     // Client-server part
     MessageParser messageParser = new MessageParser();
+    BufferedReader input;
+    public PrintWriter output;
 
-    public GamePanel(String name, int maxScreenCol, int maxScreenRow) throws IOException {
+    String host;
+
+
+    public GamePanel(String host, String name, int maxScreenCol, int maxScreenRow) throws IOException {
+        this.host = host;
         this.name = name;
         this.maxScreenCol = maxScreenCol;
         this.maxScreenRow = maxScreenRow;
@@ -77,9 +81,8 @@ public class GamePanel implements Runnable {
     public void setupGame() {
         try {
             // Communication
-            String HOST = "localhost";
-            int PORT = 8888;
-            Socket socket = new Socket(HOST, PORT);
+            int port = 8888;
+            Socket socket = new Socket(host, port);
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             output = new PrintWriter(socket.getOutputStream(), true);
             output.println("JOIN " + name);
@@ -90,13 +93,13 @@ public class GamePanel implements Runnable {
             System.exit(1);
         }
     }
-    public void startGame() throws IOException {
+    public void startGame() /*throws IOException*/ {
         keyHandler = new KeyHandler(output);
 
         // Start Stats Generator
-        ResourceMonitor resourceMonitor = new ResourceMonitor("stats/" + name + ".csv");
-        Thread resourceMonitorThread = new Thread(resourceMonitor);
-        resourceMonitorThread.start();
+        //ResourceMonitor resourceMonitor = new ResourceMonitor("stats/" + name + ".csv");
+        //Thread resourceMonitorThread = new Thread(resourceMonitor);
+        //resourceMonitorThread.start();
 
         // Start Game Thread
         gameThread = new Thread(this);
@@ -170,7 +173,9 @@ public class GamePanel implements Runnable {
             player.update(worldX, worldY, direction, isMoving);
         } else {
             for (ConnectedPlayer connectedPlayer: getConnectedPlayers()) {
-                connectedPlayer.update(worldX,worldY,direction,isMoving);
+                if (connectedPlayer.name.equals(name)){
+                    connectedPlayer.update(worldX,worldY,direction,isMoving);
+                }
             }
         }
     }

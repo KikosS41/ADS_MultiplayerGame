@@ -62,7 +62,7 @@ public class CollisionHandler {
 
     public void checkPlayers(Player entity, ArrayList<InputThread> players) {
         for (InputThread player: players) {
-            if (player.player !=entity) {
+            if (player.player !=entity && player.player != null) {
                 entity.solidArea.x += entity.worldX;
                 entity.solidArea.y += entity.worldY;
 

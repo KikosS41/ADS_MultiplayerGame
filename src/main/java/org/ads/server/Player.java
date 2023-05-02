@@ -13,12 +13,21 @@ public class Player {
 
     public Player(String name, GameThread gameThread) {
         this.name = name;
-        this.worldX = 1280;
-        this.worldY = 1280;
-        this.speed = 4;
+        this.worldX = 0;
+        this.worldY = 0;
         this.direction = "DOWN";
-        this.skin = "boy";
+        this.speed = 4;
         this.isMoving = "NO";
+
+        int rdmSkin = (int) (Math.random() * 1000);
+        if (rdmSkin < 333){
+            skin = "boy";
+        } else if(rdmSkin < 666){
+            skin = "oldman";
+        } else {
+            skin = "girl";
+        }
+
         this.gameThread = gameThread;
     }
 
@@ -27,7 +36,7 @@ public class Player {
         if (isMoving.equals("YES")) {
             collisionOn = false;
             gameThread.collisionHandler.checkTile(this);
-            gameThread.collisionHandler.checkPlayers(this, gameThread.players);
+            gameThread.collisionHandler.checkPlayers(this, gameThread.getPlayers());
             if (!collisionOn){
                 switch (direction) {
                     case "UP" -> worldY -= speed;
@@ -42,5 +51,24 @@ public class Player {
     public void changeStatus(String direction, String isMoving) {
         this.direction = direction;
         this.isMoving = isMoving;
+    }
+
+    public void setSpawn() {
+        collisionOn=true;
+        while (collisionOn){
+            collisionOn = false;
+            gameThread.collisionHandler.checkTile(this);
+            gameThread.collisionHandler.checkPlayers(this, gameThread.getPlayers());
+            if(collisionOn){
+                worldX+= gameThread.tileSize;
+                if (worldX >= gameThread.tileSize * (gameThread.maxWorldCol - 1)){
+                    worldX = 0;
+                    worldY += gameThread.tileSize;
+                }
+            }
+            if(worldY >= gameThread.tileSize * gameThread.maxWorldRow){
+                break;
+            }
+        }
     }
 }

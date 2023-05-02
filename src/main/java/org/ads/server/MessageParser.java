@@ -1,6 +1,7 @@
 package org.ads.server;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 public class MessageParser {
     String action,name,direction,isMoving;
@@ -12,6 +13,7 @@ public class MessageParser {
                 name = parts[1];
                 inputThread.player = new Player(name, gameThread); // Add new player
                 System.out.println(name + " s'est connecté.");
+                inputThread.player.setSpawn();
                 inputThread.output.println("JOIN OK " + inputThread.player.worldX + " " + inputThread.player.worldY + " " + inputThread.player.speed + " " + inputThread.player.skin);
                 return "JOIN " + inputThread.player.name + " " + inputThread.player.worldX + " " + inputThread.player.worldY + " " + inputThread.player.speed + " " + inputThread.player.skin;
             }

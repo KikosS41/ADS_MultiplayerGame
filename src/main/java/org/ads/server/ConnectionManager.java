@@ -2,6 +2,7 @@ package org.ads.server;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class ConnectionManager implements Runnable{
     boolean isRunning = true;
@@ -17,7 +18,9 @@ public class ConnectionManager implements Runnable{
                 playerSocket = gameThread.serverSocket.accept();
                 System.out.println("Nouvelle connexion entrante : " + playerSocket);
                 InputThread inputThread = new InputThread(playerSocket, gameThread);
-                gameThread.players.add(inputThread); // a changer ?
+                ArrayList<InputThread> player = gameThread.getPlayers();
+                player.add(inputThread);
+                gameThread.setPlayers(player);
                 inputThread.start();
             } catch (IOException e) {
                 throw new RuntimeException(e);

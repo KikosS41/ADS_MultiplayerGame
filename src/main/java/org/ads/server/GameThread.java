@@ -1,5 +1,6 @@
 package org.ads.server;
 
+import org.ads.client.entities.Player;
 import org.ads.server.map_parser.MapParser;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class GameThread implements Runnable{
     int FPS = 60;
     public CollisionHandler collisionHandler;
     ServerSocket serverSocket;
-    ArrayList<InputThread> players = new ArrayList<>();
+    private ArrayList<InputThread> players = new ArrayList<>();
 
     boolean isRunning;
     public GameThread(int port) throws IOException {
@@ -79,5 +80,13 @@ public class GameThread implements Runnable{
                 player.update();
             }
         }
+    }
+
+    public ArrayList<InputThread> getPlayers() {
+        return new ArrayList<>(players);
+    }
+
+    public void setPlayers(ArrayList<InputThread> players) {
+        this.players = players;
     }
 }
