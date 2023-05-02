@@ -1,7 +1,6 @@
 package org.ads.server;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public class Player {
     public String name, skin, direction, isMoving;
