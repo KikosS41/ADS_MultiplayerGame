@@ -1,6 +1,7 @@
 package org.ads.server;
 
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Player {
     public String name, skin, direction, isMoving;
@@ -55,10 +56,14 @@ public class Player {
 
     public void setSpawn() {
         collisionOn=true;
+        String[] allDirections = new String[]{"LEFT","RIGHT","UP","DOWN"};
         while (collisionOn){
             collisionOn = false;
-            gameThread.collisionHandler.checkTile(this);
-            gameThread.collisionHandler.checkPlayers(this, gameThread.getPlayers());
+            for (String direction : allDirections){
+                this.direction = direction;
+                gameThread.collisionHandler.checkTile(this);
+                gameThread.collisionHandler.checkPlayers(this, gameThread.getPlayers());
+            }
             if(collisionOn){
                 worldX+= gameThread.tileSize;
                 if (worldX >= gameThread.tileSize * (gameThread.maxWorldCol - 1)){
